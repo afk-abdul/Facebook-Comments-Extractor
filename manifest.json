@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Comment Extractor",
+  "version": "1.0",
+  "description": "Extracts usernames and comments from Facebook group posts.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://*.facebook.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.facebook.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "Extract Comments"
+  }
+}
